@@ -10,6 +10,7 @@ use App\Http\Controllers\LicencaController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\PoliticaPrivacidadeController;
 use App\Http\Controllers\PoliticaCookiesController;
+use App\Http\Controllers\BlogController;
 
 
 /*
@@ -54,3 +55,22 @@ Route::get('/empresa/ivhost', [EmpresaController::class, 'premium']);
 // POLITICAS
 Route::get('/empresa/politica-de-cookies', [PoliticaCookiesController::class, 'premium']);
 Route::get('/empresa/politica-de-privacidade', [PoliticaPrivacidadeController::class, 'premium']);
+
+
+
+// REDIRECIONAMENTOS
+
+Route::get('/dominios/transferir', function () {
+    return redirect()->away('https://painel.ivhost.com.br/cart.php?a=add&domain=transfer');
+});
+Route::get('/dominios/registrar', function () {
+    return redirect()->away('https://painel.ivhost.com.br/cart.php?a=add&domain=register');
+});
+Route::get('/fale-conosco', function () {
+    return redirect()->away('https://painel.ivhost.com.br/submitticket.php?step=2&deptid=1');
+});
+
+
+
+
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.blog');
