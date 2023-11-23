@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500px" height="500px" viewBox="0 0 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.3 (67297) - http://www.bohemiancoding.com/sketch -->
+    <title>Untitled</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="linkedin" fill="#00BCBC" fill-rule="nonzero">
+            <path d="M0.9,0 L0,500 C133.3,500 416.7,500 499.1,500 L500,0 C425,0 75,0 0.9,0 Z M148.3,425.2 L74.3,425.2 L74.3,187.3 L148.3,187.3 L148.3,425.2 Z M111.3,154.8 C87.5,154.8 68.4,135.6 68.4,111.9 C68.4,88.2 87.6,69 111.3,69 C135,69 154.2,88.2 154.2,111.9 C154.2,135.6 134.9,154.8 111.3,154.8 Z M425.2,425.2 L351.3,425.2 L351.3,309.5 C351.3,281.9 350.8,246.4 312.8,246.4 C274.3,246.4 268.4,276.4 268.4,307.5 L268.4,425.2 L194.5,425.2 L194.5,187.2 L265.4,187.2 L265.4,219.7 L266.4,219.7 C276.2,201 300.4,181.2 336.4,181.2 C411.3,181.2 425.1,230.5 425.1,294.6 L425.1,425 L425.2,425 L425.2,425.2 Z"></path>
+        </g>
+    </g>
+</svg>
