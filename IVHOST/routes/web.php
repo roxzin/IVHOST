@@ -72,5 +72,13 @@ Route::get('/fale-conosco', function () {
 
 
 
-
+// BLOG
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.blog');
+Route::get('/blog/procurar', [BlogController::class, 'procurar'])->name('blog.procurar');
+
+Route::get('/blog/{titulo}', [BlogController::class, 'blogInterno'])->name('blog.blog-interno');
+
+
+
+
+
