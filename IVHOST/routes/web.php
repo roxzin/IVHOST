@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HospedagemController;
+use App\Http\Controllers\RevendaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +15,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('conteudo');
 });
+Route::get('/home', function () {
+    return view('conteudo');
+});
+
+
+// HOSPEDAGEM DE SITES
+Route::get('/hospedagem-de-sites/hospedagem-premium', [HospedagemController::class, 'premium']);
+Route::get('/hospedagem-de-sites/hospedagem-wordpress', [HospedagemController::class, 'wordpress']);
+Route::get('/hospedagem-de-sites/hospedagem-gratis', [HospedagemController::class, 'gratis']);
+
+// REVENDA DE HOSPEDAGEM
+Route::get('/revenda-de-hospedagem/revenda-premium', [RevendaController::class, 'premium']);
+
+
