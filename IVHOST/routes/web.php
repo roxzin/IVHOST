@@ -15,10 +15,10 @@ use App\Http\Controllers\RevendaController;
 */
 
 Route::get('/', function () {
-    return view('conteudo');
+    return view('home.home');
 });
 Route::get('/home', function () {
-    return view('conteudo');
+    return view('home.home');
 });
 
 

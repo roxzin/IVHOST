@@ -1,5 +1,5 @@
 <!-- resources/views/conteudo.blade.php -->
-@extends('layouts.app')
+@extends('includes.header-footer')
 
 @section('titulo-pagina', 'Hospedagem de sites') <!-- Define o título específico desta página -->
 

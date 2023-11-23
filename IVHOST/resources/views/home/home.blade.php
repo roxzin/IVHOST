@@ -1,7 +1,7 @@
 <!-- resources/views/conteudo.blade.php -->
 @extends('includes.header-footer')
 
-@section('titulo-pagina', 'Hospedagem de sites') <!-- Define o título específico desta página -->
+@section('titulo-pagina', 'Home de sites') <!-- Define o título específico desta página -->
 
 @section('conteudo-pagina')
     <!-- Conteúdo específico desta página -->
