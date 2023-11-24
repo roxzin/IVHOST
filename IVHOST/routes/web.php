@@ -11,6 +11,7 @@ use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\PoliticaPrivacidadeController;
 use App\Http\Controllers\PoliticaCookiesController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BaseDeConhecimentoController;
 
 
 /*
@@ -26,8 +27,6 @@ use App\Http\Controllers\BlogController;
 
 // HOME
 Route::match(['get'], '/{slug?}', [HomeController::class, 'index'])->where('slug', '(home)?');
-
-
 
 // HOSPEDAGEM DE SITES
 Route::get('/hospedagem-de-sites/hospedagem-premium', [HospedagemController::class, 'premium']);
@@ -56,10 +55,16 @@ Route::get('/empresa/ivhost', [EmpresaController::class, 'premium']);
 Route::get('/empresa/politica-de-cookies', [PoliticaCookiesController::class, 'premium']);
 Route::get('/empresa/politica-de-privacidade', [PoliticaPrivacidadeController::class, 'premium']);
 
+// BLOG
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.blog');
+Route::get('/blog/procurar', [BlogController::class, 'procurar'])->name('blog.procurar');
+Route::get('/blog/{titulo}', [BlogController::class, 'blogInterno'])->name('blog.blog-interno');
 
+// BASE DE CONHECIMENTO
+Route::get('/base-de-conhecimento', [BaseDeConhecimentoController::class, 'index'])->name('base-de-conhecimento.base-de-conhecimento');
+Route::get('/base-de-conhecimento/{titulo}', [BaseDeConhecimentoController::class, 'BaseDeConhecimentoInterno'])->name('base-de-conhecimento.base-de-conhecimento-interno');
 
 // REDIRECIONAMENTOS
-
 Route::get('/dominios/transferir', function () {
     return redirect()->away('https://painel.ivhost.com.br/cart.php?a=add&domain=transfer');
 });
@@ -72,12 +77,10 @@ Route::get('/fale-conosco', function () {
 
 
 
-// BLOG
-Route::get('/blog', [BlogController::class, 'index'])->name('blog.blog');
-Route::get('/blog/procurar', [BlogController::class, 'procurar'])->name('blog.procurar');
 
-Route::get('/blog/{titulo}', [BlogController::class, 'blogInterno'])->name('blog.blog-interno');
-
+// EMAIL TEMPORARIO
+Route::get('/base-de-conhecimento', [BaseDeConhecimentoController::class, 'index'])->name('base-de-conhecimento.base-de-conhecimento');
+Route::get('/base-de-conhecimento/{titulo}', [BaseDeConhecimentoController::class, 'BaseDeConhecimentoInterno'])->name('base-de-conhecimento.base-de-conhecimento-interno');
 
 
 
