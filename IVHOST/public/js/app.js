@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
     // Função para aceitar os cookies
     function aceitarCookies() {
@@ -1293,7 +1294,10 @@ return function(t, e, n) {
     t
 }
 }();
-
+function _classCallCheck(t, e) {
+if (!(t instanceof e))
+    throw new TypeError("Cannot call a class as a function")
+}
 var Button = function(o) {
 var t = "button"
   , n = "bs.button"
@@ -1399,7 +1403,10 @@ return function(t, e, n) {
     t
 }
 }();
-
+function _classCallCheck(t, e) {
+if (!(t instanceof e))
+    throw new TypeError("Cannot call a class as a function")
+}
 var Modal = function(o) {
 var e = "modal"
   , a = "bs.modal"
@@ -1732,8 +1739,393 @@ return function(t, e, n) {
     t
 }
 }();
-
-(jQuery)
+function _classCallCheck(t, e) {
+if (!(t instanceof e))
+    throw new TypeError("Cannot call a class as a function")
+}
+var Tooltip = function(o) {
+if ("undefined" == typeof Popper)
+    throw new Error("Bootstrap tooltips require Popper.js (https://popper.js.org)");
+var e = "tooltip"
+  , r = "bs.tooltip"
+  , t = "." + r
+  , n = o.fn[e]
+  , i = "bs-tooltip"
+  , a = new RegExp("(^|\\s)" + i + "\\S+","g")
+  , s = {
+    animation: "boolean",
+    template: "string",
+    title: "(string|element|function)",
+    trigger: "string",
+    delay: "(number|object)",
+    html: "boolean",
+    selector: "(string|boolean)",
+    placement: "(string|function)",
+    offset: "(number|string)",
+    container: "(string|element|boolean)",
+    fallbackPlacement: "(string|array)"
+}
+  , l = {
+    AUTO: "auto",
+    TOP: "top",
+    RIGHT: "right",
+    BOTTOM: "bottom",
+    LEFT: "left"
+}
+  , c = {
+    animation: !0,
+    template: '<div class="tooltip" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>',
+    trigger: "hover focus",
+    title: "",
+    delay: 0,
+    html: !1,
+    selector: !1,
+    placement: "top",
+    offset: 0,
+    container: !1,
+    fallbackPlacement: "flip"
+}
+  , u = "show"
+  , d = "out"
+  , h = {
+    HIDE: "hide" + t,
+    HIDDEN: "hidden" + t,
+    SHOW: "show" + t,
+    SHOWN: "shown" + t,
+    INSERTED: "inserted" + t,
+    CLICK: "click" + t,
+    FOCUSIN: "focusin" + t,
+    FOCUSOUT: "focusout" + t,
+    MOUSEENTER: "mouseenter" + t,
+    MOUSELEAVE: "mouseleave" + t
+}
+  , p = "fade"
+  , f = "show"
+  , m = ".tooltip-inner"
+  , g = ".arrow"
+  , v = "hover"
+  , y = "focus"
+  , b = "click"
+  , w = "manual"
+  , _ = (x.prototype.enable = function() {
+    this._isEnabled = !0
+}
+,
+x.prototype.disable = function() {
+    this._isEnabled = !1
+}
+,
+x.prototype.toggleEnabled = function() {
+    this._isEnabled = !this._isEnabled
+}
+,
+x.prototype.toggle = function(t) {
+    var e, n;
+    t ? (e = this.constructor.DATA_KEY,
+    (n = o(t.currentTarget).data(e)) || (n = new this.constructor(t.currentTarget,this._getDelegateConfig()),
+    o(t.currentTarget).data(e, n)),
+    n._activeTrigger.click = !n._activeTrigger.click,
+    n._isWithActiveTrigger() ? n._enter(null, n) : n._leave(null, n)) : o(this.getTipElement()).hasClass(f) ? this._leave(null, this) : this._enter(null, this)
+}
+,
+x.prototype.dispose = function() {
+    clearTimeout(this._timeout),
+    o.removeData(this.element, this.constructor.DATA_KEY),
+    o(this.element).off(this.constructor.EVENT_KEY),
+    o(this.element).closest(".modal").off("hide.bs.modal"),
+    this.tip && o(this.tip).remove(),
+    this._isEnabled = null,
+    this._timeout = null,
+    this._hoverState = null,
+    (this._activeTrigger = null) !== this._popper && this._popper.destroy(),
+    this._popper = null,
+    this.element = null,
+    this.config = null,
+    this.tip = null
+}
+,
+x.prototype.show = function() {
+    var e = this;
+    if ("none" === o(this.element).css("display"))
+        throw new Error("Please use show on visible elements");
+    var t, n, r = o.Event(this.constructor.Event.SHOW);
+    this.isWithContent() && this._isEnabled && (o(this.element).trigger(r),
+    t = o.contains(this.element.ownerDocument.documentElement, this.element),
+    !r.isDefaultPrevented() && t && (n = this.getTipElement(),
+    r = Util.getUID(this.constructor.NAME),
+    n.setAttribute("id", r),
+    this.element.setAttribute("aria-describedby", r),
+    this.setContent(),
+    this.config.animation && o(n).addClass(p),
+    t = "function" == typeof this.config.placement ? this.config.placement.call(this, n, this.element) : this.config.placement,
+    r = this._getAttachment(t),
+    this.addAttachmentClass(r),
+    t = !1 === this.config.container ? document.body : o(this.config.container),
+    o(n).data(this.constructor.DATA_KEY, this),
+    o.contains(this.element.ownerDocument.documentElement, this.tip) || o(n).appendTo(t),
+    o(this.element).trigger(this.constructor.Event.INSERTED),
+    this._popper = new Popper(this.element,n,{
+        placement: r,
+        modifiers: {
+            offset: {
+                offset: this.config.offset
+            },
+            flip: {
+                behavior: this.config.fallbackPlacement
+            },
+            arrow: {
+                element: g
+            }
+        },
+        onCreate: function(t) {
+            t.originalPlacement !== t.placement && e._handlePopperPlacementChange(t)
+        },
+        onUpdate: function(t) {
+            e._handlePopperPlacementChange(t)
+        }
+    }),
+    o(n).addClass(f),
+    "ontouchstart"in document.documentElement && o("body").children().on("mouseover", null, o.noop),
+    n = function() {
+        e.config.animation && e._fixTransition();
+        var t = e._hoverState;
+        e._hoverState = null,
+        o(e.element).trigger(e.constructor.Event.SHOWN),
+        t === d && e._leave(null, e)
+    }
+    ,
+    Util.supportsTransitionEnd() && o(this.tip).hasClass(p) ? o(this.tip).one(Util.TRANSITION_END, n).emulateTransitionEnd(x._TRANSITION_DURATION) : n()))
+}
+,
+x.prototype.hide = function(t) {
+    function e() {
+        n._hoverState !== u && r.parentNode && r.parentNode.removeChild(r),
+        n._cleanTipClass(),
+        n.element.removeAttribute("aria-describedby"),
+        o(n.element).trigger(n.constructor.Event.HIDDEN),
+        null !== n._popper && n._popper.destroy(),
+        t && t()
+    }
+    var n = this
+      , r = this.getTipElement()
+      , i = o.Event(this.constructor.Event.HIDE);
+    o(this.element).trigger(i),
+    i.isDefaultPrevented() || (o(r).removeClass(f),
+    "ontouchstart"in document.documentElement && o("body").children().off("mouseover", null, o.noop),
+    this._activeTrigger[b] = !1,
+    this._activeTrigger[y] = !1,
+    this._activeTrigger[v] = !1,
+    Util.supportsTransitionEnd() && o(this.tip).hasClass(p) ? o(r).one(Util.TRANSITION_END, e).emulateTransitionEnd(150) : e(),
+    this._hoverState = "")
+}
+,
+x.prototype.update = function() {
+    null !== this._popper && this._popper.scheduleUpdate()
+}
+,
+x.prototype.isWithContent = function() {
+    return Boolean(this.getTitle())
+}
+,
+x.prototype.addAttachmentClass = function(t) {
+    o(this.getTipElement()).addClass(i + "-" + t)
+}
+,
+x.prototype.getTipElement = function() {
+    return this.tip = this.tip || o(this.config.template)[0]
+}
+,
+x.prototype.setContent = function() {
+    var t = o(this.getTipElement());
+    this.setElementContent(t.find(m), this.getTitle()),
+    t.removeClass(p + " " + f)
+}
+,
+x.prototype.setElementContent = function(t, e) {
+    var n = this.config.html;
+    "object" === (void 0 === e ? "undefined" : _typeof(e)) && (e.nodeType || e.jquery) ? n ? o(e).parent().is(t) || t.empty().append(e) : t.text(o(e).text()) : t[n ? "html" : "text"](e)
+}
+,
+x.prototype.getTitle = function() {
+    return this.element.getAttribute("data-original-title") || ("function" == typeof this.config.title ? this.config.title.call(this.element) : this.config.title)
+}
+,
+x.prototype._getAttachment = function(t) {
+    return l[t.toUpperCase()]
+}
+,
+x.prototype._setListeners = function() {
+    var n = this;
+    this.config.trigger.split(" ").forEach(function(t) {
+        var e;
+        "click" === t ? o(n.element).on(n.constructor.Event.CLICK, n.config.selector, function(t) {
+            return n.toggle(t)
+        }) : t !== w && (e = t === v ? n.constructor.Event.MOUSEENTER : n.constructor.Event.FOCUSIN,
+        t = t === v ? n.constructor.Event.MOUSELEAVE : n.constructor.Event.FOCUSOUT,
+        o(n.element).on(e, n.config.selector, function(t) {
+            return n._enter(t)
+        }).on(t, n.config.selector, function(t) {
+            return n._leave(t)
+        })),
+        o(n.element).closest(".modal").on("hide.bs.modal", function() {
+            return n.hide()
+        })
+    }),
+    this.config.selector ? this.config = o.extend({}, this.config, {
+        trigger: "manual",
+        selector: ""
+    }) : this._fixTitle()
+}
+,
+x.prototype._fixTitle = function() {
+    var t = _typeof(this.element.getAttribute("data-original-title"));
+    !this.element.getAttribute("title") && "string" === t || (this.element.setAttribute("data-original-title", this.element.getAttribute("title") || ""),
+    this.element.setAttribute("title", ""))
+}
+,
+x.prototype._enter = function(t, e) {
+    var n = this.constructor.DATA_KEY;
+    (e = e || o(t.currentTarget).data(n)) || (e = new this.constructor(t.currentTarget,this._getDelegateConfig()),
+    o(t.currentTarget).data(n, e)),
+    t && (e._activeTrigger["focusin" === t.type ? y : v] = !0),
+    o(e.getTipElement()).hasClass(f) || e._hoverState === u ? e._hoverState = u : (clearTimeout(e._timeout),
+    e._hoverState = u,
+    e.config.delay && e.config.delay.show ? e._timeout = setTimeout(function() {
+        e._hoverState === u && e.show()
+    }, e.config.delay.show) : e.show())
+}
+,
+x.prototype._leave = function(t, e) {
+    var n = this.constructor.DATA_KEY;
+    (e = e || o(t.currentTarget).data(n)) || (e = new this.constructor(t.currentTarget,this._getDelegateConfig()),
+    o(t.currentTarget).data(n, e)),
+    t && (e._activeTrigger["focusout" === t.type ? y : v] = !1),
+    e._isWithActiveTrigger() || (clearTimeout(e._timeout),
+    e._hoverState = d,
+    e.config.delay && e.config.delay.hide ? e._timeout = setTimeout(function() {
+        e._hoverState === d && e.hide()
+    }, e.config.delay.hide) : e.hide())
+}
+,
+x.prototype._isWithActiveTrigger = function() {
+    for (var t in this._activeTrigger)
+        if (this._activeTrigger[t])
+            return !0;
+    return !1
+}
+,
+x.prototype._getConfig = function(t) {
+    return (t = o.extend({}, this.constructor.Default, o(this.element).data(), t)).delay && "number" == typeof t.delay && (t.delay = {
+        show: t.delay,
+        hide: t.delay
+    }),
+    t.title && "number" == typeof t.title && (t.title = t.title.toString()),
+    t.content && "number" == typeof t.content && (t.content = t.content.toString()),
+    Util.typeCheckConfig(e, t, this.constructor.DefaultType),
+    t
+}
+,
+x.prototype._getDelegateConfig = function() {
+    var t = {};
+    if (this.config)
+        for (var e in this.config)
+            this.constructor.Default[e] !== this.config[e] && (t[e] = this.config[e]);
+    return t
+}
+,
+x.prototype._cleanTipClass = function() {
+    var t = o(this.getTipElement())
+      , e = t.attr("class").match(a);
+    null !== e && 0 < e.length && t.removeClass(e.join(""))
+}
+,
+x.prototype._handlePopperPlacementChange = function(t) {
+    this._cleanTipClass(),
+    this.addAttachmentClass(this._getAttachment(t.placement))
+}
+,
+x.prototype._fixTransition = function() {
+    var t = this.getTipElement()
+      , e = this.config.animation;
+    null === t.getAttribute("x-placement") && (o(t).removeClass(p),
+    this.config.animation = !1,
+    this.hide(),
+    this.show(),
+    this.config.animation = e)
+}
+,
+x._jQueryInterface = function(n) {
+    return this.each(function() {
+        var t = o(this).data(r)
+          , e = "object" === (void 0 === n ? "undefined" : _typeof(n)) && n;
+        if ((t || !/dispose|hide/.test(n)) && (t || (t = new x(this,e),
+        o(this).data(r, t)),
+        "string" == typeof n)) {
+            if (void 0 === t[n])
+                throw new Error('No method named "' + n + '"');
+            t[n]()
+        }
+    })
+}
+,
+_createClass(x, null, [{
+    key: "VERSION",
+    get: function() {
+        return "4.0.0-beta"
+    }
+}, {
+    key: "Default",
+    get: function() {
+        return c
+    }
+}, {
+    key: "NAME",
+    get: function() {
+        return e
+    }
+}, {
+    key: "DATA_KEY",
+    get: function() {
+        return r
+    }
+}, {
+    key: "Event",
+    get: function() {
+        return h
+    }
+}, {
+    key: "EVENT_KEY",
+    get: function() {
+        return t
+    }
+}, {
+    key: "DefaultType",
+    get: function() {
+        return s
+    }
+}]),
+x);
+function x(t, e) {
+    _classCallCheck(this, x),
+    this._isEnabled = !0,
+    this._timeout = 0,
+    this._hoverState = "",
+    this._activeTrigger = {},
+    this._popper = null,
+    this.element = t,
+    this.config = this._getConfig(e),
+    this.tip = null,
+    this._setListeners()
+}
+return o.fn[e] = _._jQueryInterface,
+o.fn[e].Constructor = _,
+o.fn[e].noConflict = function() {
+    return o.fn[e] = n,
+    _._jQueryInterface
+}
+,
+_
+}(jQuery)
 , _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(t) {
 return typeof t
 }
@@ -1756,7 +2148,10 @@ return function(t, e, n) {
     t
 }
 }();
-
+function _classCallCheck(t, e) {
+if (!(t instanceof e))
+    throw new TypeError("Cannot call a class as a function")
+}
 function _possibleConstructorReturn(t, e) {
 if (!t)
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
@@ -1775,9 +2170,119 @@ t.prototype = Object.create(e && e.prototype, {
 }),
 e && (Object.setPrototypeOf ? Object.setPrototypeOf(t, e) : t.__proto__ = e)
 }
-
-
-(jQuery)
+var Popover = function(r) {
+var t, e = "popover", i = "bs.popover", n = "." + i, o = r.fn[e], a = "bs-popover", s = new RegExp("(^|\\s)" + a + "\\S+","g"), l = r.extend({}, Tooltip.Default, {
+    placement: "right",
+    trigger: "click",
+    content: "",
+    template: '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
+}), c = r.extend({}, Tooltip.DefaultType, {
+    content: "(string|element|function)"
+}), u = "fade", d = "show", h = ".popover-header", p = ".popover-body", f = {
+    HIDE: "hide" + n,
+    HIDDEN: "hidden" + n,
+    SHOW: "show" + n,
+    SHOWN: "shown" + n,
+    INSERTED: "inserted" + n,
+    CLICK: "click" + n,
+    FOCUSIN: "focusin" + n,
+    FOCUSOUT: "focusout" + n,
+    MOUSEENTER: "mouseenter" + n,
+    MOUSELEAVE: "mouseleave" + n
+}, m = (_inherits(g, t = Tooltip),
+g.prototype.isWithContent = function() {
+    return this.getTitle() || this._getContent()
+}
+,
+g.prototype.addAttachmentClass = function(t) {
+    r(this.getTipElement()).addClass(a + "-" + t)
+}
+,
+g.prototype.getTipElement = function() {
+    return this.tip = this.tip || r(this.config.template)[0]
+}
+,
+g.prototype.setContent = function() {
+    var t = r(this.getTipElement());
+    this.setElementContent(t.find(h), this.getTitle()),
+    this.setElementContent(t.find(p), this._getContent()),
+    t.removeClass(u + " " + d)
+}
+,
+g.prototype._getContent = function() {
+    return this.element.getAttribute("data-content") || ("function" == typeof this.config.content ? this.config.content.call(this.element) : this.config.content)
+}
+,
+g.prototype._cleanTipClass = function() {
+    var t = r(this.getTipElement())
+      , e = t.attr("class").match(s);
+    null !== e && 0 < e.length && t.removeClass(e.join(""))
+}
+,
+g._jQueryInterface = function(n) {
+    return this.each(function() {
+        var t = r(this).data(i)
+          , e = "object" === (void 0 === n ? "undefined" : _typeof(n)) ? n : null;
+        if ((t || !/destroy|hide/.test(n)) && (t || (t = new g(this,e),
+        r(this).data(i, t)),
+        "string" == typeof n)) {
+            if (void 0 === t[n])
+                throw new Error('No method named "' + n + '"');
+            t[n]()
+        }
+    })
+}
+,
+_createClass(g, null, [{
+    key: "VERSION",
+    get: function() {
+        return "4.0.0-beta"
+    }
+}, {
+    key: "Default",
+    get: function() {
+        return l
+    }
+}, {
+    key: "NAME",
+    get: function() {
+        return e
+    }
+}, {
+    key: "DATA_KEY",
+    get: function() {
+        return i
+    }
+}, {
+    key: "Event",
+    get: function() {
+        return f
+    }
+}, {
+    key: "EVENT_KEY",
+    get: function() {
+        return n
+    }
+}, {
+    key: "DefaultType",
+    get: function() {
+        return c
+    }
+}]),
+g);
+function g() {
+    return _classCallCheck(this, g),
+    _possibleConstructorReturn(this, t.apply(this, arguments))
+}
+return r.fn[e] = m._jQueryInterface,
+r.fn[e].Constructor = m,
+r.fn[e].noConflict = function() {
+    return r.fn[e] = o,
+    m._jQueryInterface
+}
+,
+m
+}(jQuery)
 , _createClass = function() {
 function r(t, e) {
     for (var n = 0; n < e.length; n++) {
@@ -1794,7 +2299,10 @@ return function(t, e, n) {
     t
 }
 }();
-
+function _classCallCheck(t, e) {
+if (!(t instanceof e))
+    throw new TypeError("Cannot call a class as a function")
+}
 var Tab = function(s) {
 var r = "bs.tab"
   , t = "." + r

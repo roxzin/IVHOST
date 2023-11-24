@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('titulo-pagina', config('app.name'))</title> 
-    <link href="{{ asset('css/estilo.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
 
@@ -426,7 +426,7 @@ document.getElementById('status').innerHTML = '';
 
 
 <script type='text/javascript' src='https://code.jquery.com/jquery-3.7.1.min.js' id='jquery-core-js'></script>
-<script type='text/javascript' src='/javascript/scripts.js' id='jquery-core-js'></script>
+<script type='text/javascript' src='/js/app.js' id='jquery-core-js'></script>
  
 
 <!-- Google tag (gtag.js) -->
