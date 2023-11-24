@@ -12,6 +12,7 @@ use App\Http\Controllers\PoliticaPrivacidadeController;
 use App\Http\Controllers\PoliticaCookiesController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BaseDeConhecimentoController;
+use App\Http\Controllers\DominiosController;
 
 
 /*
@@ -41,6 +42,10 @@ Route::get('/servidores-vps/servidores-vps-premium', [ServidoresController::clas
 
 // EMAIL
 Route::get('/emails/email-premium', [EmailController::class, 'premium']);
+
+
+// DOMINIOS
+Route::get('/dominios/registro-de-dominios', [DominiosController::class, 'registro_de_dominio'])->name('dominios.registro-de-dominios');
 
 // LICENÇA
 Route::get('/licencas', [LicencaController::class, 'premium']);

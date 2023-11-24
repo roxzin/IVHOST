@@ -220,28 +220,9 @@
                   </li>
                 </ul>
               </li>
-              <li id="menu-item-7500" class="column-4 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-7500">
-               SOBRE NÓS
-                <ul class="sub-menu">
-           
-                <li id="menu-item-7501" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7501">
-                    <a href="/base-de-conhecimento">Base de Conhecimento</a>
-                  </li>
-                <li id="menu-item-44535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44535">
-                    <a href="/empresa/ivhost">Sobre a IVHOST</a>
-                  </li>
+             
 
-                  <li id="menu-item-7501" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7501">
-                    <a href="/fale-conosco">Fale Conosco</a>
-                  </li>
-                  <li id="menu-item-7501" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7501">
-                    <a href="/blog">Blog</a>
-                  </li>
-                 
-                </ul>
-              </li>
-            </div>
-            <div class="column-2 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children">
+ 
               <li id="menu-item-7494" class="column-1 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-7494">
                 REVENDA
                 <ul class="sub-menu">
@@ -250,20 +231,45 @@
                   </li>
                 </ul>
               </li>
+
+
+            </div>
+            <div class="column-2 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children">
+             
+            <li id="menu-item-7500" class="column-4 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-7500">
+            SOBRE NÓS
+                <ul class="sub-menu">
+                <li id="menu-item-7501" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7501">
+                    <a href="/base-de-conhecimento">Base de Conhecimento</a>
+                  </li>
+                  <li id="menu-item-7501" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7501">
+                    <a href="/blog">Blog</a>
+                  </li>
+              
+                </ul>
+              </li>
+           
               <li id="menu-item-7500" class="column-4 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-7500">
-               SISTEMAS
+              EMPRESA
                 <ul class="sub-menu">
                   <!--<li id="menu-item-7503" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7503">
                     <a href="/sistemas/sistema-de-rifa">Sistema De Rifa</a>
                   </li>-->
-                  <li id="menu-item-20978" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20978">
-                    <a href="/sistemas/email-temporario">E-mail Temporario</a>
+                  
+                  <li id="menu-item-44535" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44535">
+                    <a href="/empresa/ivhost">Sobre a IVHOST</a>
                   </li>
+
+                  <li id="menu-item-7501" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7501">
+                    <a href="/fale-conosco">Fale Conosco</a>
+                  </li>
+                  
+                 
                 </ul>
               </li>
             </div>
             <div class="column-3 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children">
-              <li id="menu-item-20962" class="column-2 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-20962">
+            <li id="menu-item-20962" class="column-2 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-20962">
               SERVIDORES
                 <ul class="sub-menu">
                   <li id="menu-item-20963" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-20963">
@@ -271,7 +277,8 @@
                   </li>
                 </ul>
               </li>
-              <li id="menu-item-7494" class="column-1 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-7494">
+              
+            <li id="menu-item-7494" class="column-1 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-7494">
                LICENÇAS
                 <ul class="sub-menu">
                   <li id="menu-item-39846" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-39846">
@@ -285,6 +292,9 @@
                   </li>
                 </ul>
               </li>
+          
+         
+           
             </div>
             <div class="column-4 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children">
               <li id="menu-item-7638" class="column-3 menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-7638">
