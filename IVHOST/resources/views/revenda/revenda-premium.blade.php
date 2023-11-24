@@ -1,7 +1,7 @@
 <!-- resources/views/conteudo.blade.php -->
 @extends('includes.header-footer')
 
-@section('titulo-pagina', 'Revenda De Hospedagem') <!-- Define o título específico desta página -->
+@section('titulo-pagina', 'Revenda De Hospedagem - IVHOST') <!-- Define o título específico desta página -->
 
 @section('conteudo-pagina')
 

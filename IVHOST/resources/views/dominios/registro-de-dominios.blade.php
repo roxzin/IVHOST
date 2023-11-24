@@ -1,7 +1,7 @@
 <!-- views/conteudo.blade.php -->
 @extends('includes.header-footer')
 
-@section('titulo-pagina', 'IVHOST - registro de dominios') <!-- Define o título específico desta página -->
+@section('titulo-pagina', 'Registro De Domínios - IVHOST') <!-- Define o título específico desta página -->
 
 @section('conteudo-pagina')
 
@@ -105,7 +105,7 @@
             <script type="text/javascript"></script>
             <div data-progressive-enabled="true" data-enhanced="false" class="gf_browser_chrome gform_wrapper gform_legacy_markup_wrapper gform-theme--no-framework progressive_form_enabled_wrapper contact-form_wrapper mql-form_wrapper chilipiper_wrapper ipqs_wrapper inline-optional_wrapper" data-form-theme="legacy" data-form-index="0" id="gform_wrapper_50" style="">
               <div id="gf_50" class="gform_anchor" tabindex="-1"></div>
-              <form method="post" enctype="multipart/form-data" target="gform_ajax_frame_50" id="gform_50" class="progressive_form_enabled contact-form mql-form chilipiper ipqs inline-optional" action="/dominios/registrar" data-formid="50" novalidate="">
+              <form method="get" enctype="multipart/form-data" target="gform_ajax_frame_50" id="gform_50" class="progressive_form_enabled contact-form mql-form chilipiper ipqs inline-optional" action="/dominios/registrar" data-formid="50" novalidate="">
                 
                 <div class="gform_footer top_label">
                   <button class="btn btn-primary btn-lg gform_submit_button" id="gform_submit_button_50">REGISTRE SEU DOMÍNIO AGORA</button>

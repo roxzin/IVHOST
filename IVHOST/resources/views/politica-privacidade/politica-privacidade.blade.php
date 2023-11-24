@@ -1,7 +1,7 @@
 <!-- resources/views/conteudo.blade.php -->
 @extends('includes.header-footer')
 
-@section('titulo-pagina', 'IVHOST - Política de Privacidade') <!-- Define o título específico desta página -->
+@section('titulo-pagina', 'Política de Privacidade - IVHOST') <!-- Define o título específico desta página -->
 
 @section('conteudo-pagina')
 

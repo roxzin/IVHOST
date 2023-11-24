@@ -1,7 +1,7 @@
 <!-- resources/views/conteudo.blade.php -->
 @extends('includes.header-footer')
 
-@section('titulo-pagina', 'bnase de sites') <!-- Define o título específico desta página -->
+@section('titulo-pagina', 'Base De Conhecimento - IVHOST') <!-- Define o título específico desta página -->
 
 @section('conteudo-pagina')
 

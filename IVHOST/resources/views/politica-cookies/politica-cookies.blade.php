@@ -1,7 +1,7 @@
 <!-- resources/views/conteudo.blade.php -->
 @extends('includes.header-footer')
 
-@section('titulo-pagina', 'IVHOST - Política de Cookies') <!-- Define o título específico desta página -->
+@section('titulo-pagina', 'Política de Cookies - IVHOST') <!-- Define o título específico desta página -->
 
 @section('conteudo-pagina')
 
